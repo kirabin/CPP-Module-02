@@ -7,17 +7,18 @@ Fixed::Fixed() {
 
 Fixed::Fixed(const Fixed& src) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+
+	this->_value = src._value;
 }
 
 Fixed::~Fixed() {
 	std::cout << "Desctructor called" << std::endl;
 }
 
-Fixed&	Fixed::operator=(const Fixed& src) {
+Fixed&	Fixed::operator =(const Fixed& src) {
 	std::cout << "Assign operator called" << std::endl;
-	if (this != &src)
-		this->_value = src._value;
+
+	this->_value = src._value;
 	return *this;
 }
 
