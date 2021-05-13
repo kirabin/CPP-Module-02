@@ -1,7 +1,7 @@
 #include "Fixed.hpp"
 
 Fixed::Fixed() {
-	cout << "Default constructor called" << endl;
+	std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
 }
 
@@ -11,38 +11,37 @@ Fixed::Fixed(const int num) {
 }
 
 Fixed::Fixed(const float num) {
-	int		num_int_rep;
 	// TODO: how this formula works?
-	this->_value = round(num * (1 << this->_fractional_bits));
+	this->_value = roundf(num * (1 << this->_fractional_bits));
 }
 
 Fixed::Fixed(const Fixed& src) {
-	cout << "Copy constructor called" << endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
 Fixed::~Fixed() {
-	cout << "Desctructor called" << endl;
+	std::cout << "Desctructor called" << std::endl;
 }
 
 Fixed&	Fixed::operator=(const Fixed& src) {
-	cout << "Assign operator called" << endl;
+	std::cout << "Assign operator called" << std::endl;
 	if (this != &src)
 		this->_value = src._value;
 	return *this;
 }
 
 int		Fixed::getRawBits() const {
-	cout << "getRawBits called" << endl;
+	std::cout << "getRawBits called" << std::endl;
 	return this->_value;
 }
 
 void	Fixed::setRawBits(int const raw) {
-	cout << "setRawBits called" << endl;
+	std::cout << "setRawBits called" << std::endl;
 	this->_value = raw;
 }
 
-ostream&	operator <<(ostream& out, const Fixed& src) {
+std::ostream&	operator <<(std::ostream& out, const Fixed& src) {
 	out << src.toFloat();
 	return out;
 }

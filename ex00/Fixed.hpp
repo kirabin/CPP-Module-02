@@ -3,11 +3,6 @@
 # include <string>
 # include <iostream>
 
-using std::string;
-using std::cout;
-using std::endl;
-
-
 class Fixed {
 
 	public:
@@ -21,7 +16,7 @@ class Fixed {
 
 	private:
 		static const int	_fractional_bits = 8;
-		int					value;
+		int					_value;
 
 };
 

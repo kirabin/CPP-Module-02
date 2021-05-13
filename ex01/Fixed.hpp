@@ -5,11 +5,6 @@
 # include <ostream>
 # include <cmath>
 
-using std::string;
-using std::cout;
-using std::endl;
-using std::ostream;
-
 class Fixed {
 
 	public:
@@ -19,7 +14,7 @@ class Fixed {
 		Fixed(const Fixed& src);
 		~Fixed();
 
-		Fixed&		operator =(const Fixed& src);
+		Fixed&	operator =(const Fixed& src);
 		int		getRawBits() const;
 		void	setRawBits(int const raw);
 		float	toFloat() const;
@@ -30,7 +25,7 @@ class Fixed {
 		int					_value;
 
 };
-// TODO: why outside of class scope?
-ostream&	operator <<(ostream& out, const Fixed& src);
+
+std::ostream&	operator <<(std::ostream& out, const Fixed& src);
 
 #endif
