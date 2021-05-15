@@ -21,7 +21,8 @@ class Fixed {
 		int		toInt() const;
 
 	private:
-		static const int	_fractional_bits = 8;
+		static const int	_fractional_bits;
+		static const int	_exponent;
 		int					_value;
 
 };

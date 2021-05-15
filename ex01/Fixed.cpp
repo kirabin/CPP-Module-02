@@ -1,18 +1,19 @@
 #include "Fixed.hpp"
 
+const int Fixed::_fractional_bits = 8;
+const int Fixed::_exponent = 1 << Fixed::_fractional_bits;
+
 Fixed::Fixed() {
 	std::cout << "Default constructor called" << std::endl;
 	this->_value = 0;
 }
 
 Fixed::Fixed(const int num) {
-	// TODO: why does it handle negative values?
-	this->_value = num << this->_fractional_bits;
+	this->_value = num * _exponent;
 }
 
 Fixed::Fixed(const float num) {
-	// TODO: how this formula works?
-	this->_value = roundf(num * (1 << this->_fractional_bits));
+	this->_value = roundf(num * _exponent);
 }
 
 Fixed::Fixed(const Fixed& src) {
@@ -48,10 +49,9 @@ std::ostream&	operator <<(std::ostream& out, const Fixed& src) {
 }
 
 float		Fixed::toFloat() const {
-	// TODO: how this formula works?
-	return (double)this->_value / (double)(1 << this->_fractional_bits);
+	return (float)this->_value / _exponent;
 }
 
 int			Fixed::toInt() const {
-	return this->_value >> this->_fractional_bits;
+	return this->_value / _exponent;
 }
